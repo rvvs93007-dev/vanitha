@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home Interior Planner - PocketSmart AI
+{% endblock %}
+
+{% block content %}
+
+<div class="container planner-container">
+
+    <div class="form-card">
+
+        <h1>
+            Home Interior Budget Planner
+        </h1>
+
+        <p>
+            Tell PocketSmart AI what you want to buy
+            and how much you want to spend.
+        </p>
+
+
+        <form onsubmit="submitHomeForm(event)">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Total Budget (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        name="budget"
+                        min="1"
+                        required
+                        placeholder="100000"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        City
+                    </label>
+
+                    <input
+                        type="text"
+                        name="city"
+                        placeholder="Chennai"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Interior Style
+                    </label>
+
+                    <select name="style">
+
+                        <option value="modern">
+                            Modern
+                        </option>
+
+                        <option value="minimalist">
+                            Minimalist
+                        </option>
+
+                        <option value="traditional">
+                            Traditional
+                        </option>
+
+                        <option value="bohemian">
+                            Bohemian
+                        </option>
+
+                        <option value="luxury">
+                            Luxury
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Rooms
+                    </label>
+
+                    <div class="checkbox-group">
+
+                        <label class="checkbox-item">
+                            <input
+                                type="checkbox"
+                                name="rooms"
+                                value="Living Room"
+                            >
+                            Living Room
+                        </label>
+
+                        <label class="checkbox-item">
+                            <input
+                                type="checkbox"
+                                name="rooms"
+                                value="Bedroom"
+                            >
+                            Bedroom
+                        </label>
+
+                        <label class="checkbox-item">
+                            <input
+                                type="checkbox"
+                                name="rooms"
+                                value="Kitchen"
+                            >
+                            Kitchen
+                        </label>
+
+                        <label class="checkbox-item">
+                            <input
+                                type="checkbox"
+                                name="rooms"
+                                value="Dining Room"
+                            >
+                            Dining Room
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Lights
+                    </label>
+
+                    <input
+                        type="number"
+                        name="lights"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Ceiling Fans
+                    </label>
+
+                    <input
+                        type="number"
+                        name="fans"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Dining Tables
+                    </label>
+
+                    <input
+                        type="number"
+                        name="dining_table"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Sofas
+                    </label>
+
+                    <input
+                        type="number"
+                        name="sofa"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >
+                Generate Recommendations
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div
+        id="home-loading"
+        class="loading"
+    >
+        Generating your home plan...
+    </div>
+
+
+    <div
+        id="home-result"
+        class="result"
+    ></div>
+
+</div>
+
+{% endblock %}

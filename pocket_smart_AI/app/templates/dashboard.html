@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard - PocketSmart AI
+{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h1>
+                Welcome{% if user %}, {{ user["name"] }}{% endif %}
+            </h1>
+
+            <p>
+                Choose a planner and turn your budget into
+                a personalized plan.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Home Interior
+                </h3>
+
+                <p>
+                    Furniture, lighting, decor and
+                    storage planning.
+                </p>
+
+                <a
+                    href="/planner/home"
+                    class="btn btn-primary"
+                >
+                    Open Home Planner
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Party
+                </h3>
+
+                <p>
+                    Catering, venue, decoration and
+                    entertainment budgeting.
+                </p>
+
+                <a
+                    href="/planner/party"
+                    class="btn btn-primary"
+                >
+                    Open Party Planner
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Jewelry
+                </h3>
+
+                <p>
+                    Occasion-aware jewelry recommendations
+                    with optional outfit image analysis.
+                </p>
+
+                <a
+                    href="/planner/jewelry"
+                    class="btn btn-primary"
+                >
+                    Open Jewelry Planner
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

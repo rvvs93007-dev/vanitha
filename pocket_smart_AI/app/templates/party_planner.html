@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}
+Party Planner - PocketSmart AI
+{% endblock %}
+
+{% block content %}
+
+<div class="container planner-container">
+
+    <div class="form-card">
+
+        <h1>
+            Party Budget Planner
+        </h1>
+
+        <p>
+            Plan your event budget across food,
+            venue, decoration and entertainment.
+        </p>
+
+
+        <form onsubmit="submitPartyForm(event)">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Total Budget (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        name="budget"
+                        min="1"
+                        required
+                        placeholder="50000"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Number of Guests
+                    </label>
+
+                    <input
+                        type="number"
+                        name="guests"
+                        min="1"
+                        required
+                        placeholder="50"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Event Type
+                    </label>
+
+                    <select name="event_type">
+
+                        <option value="birthday">
+                            Birthday
+                        </option>
+
+                        <option value="wedding">
+                            Wedding
+                        </option>
+
+                        <option value="corporate">
+                            Corporate
+                        </option>
+
+                        <option value="anniversary">
+                            Anniversary
+                        </option>
+
+                        <option value="engagement">
+                            Engagement
+                        </option>
+
+                        <option value="housewarming">
+                            Housewarming
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Venue Type
+                    </label>
+
+                    <select name="venue_type">
+
+                        <option value="home">
+                            Home
+                        </option>
+
+                        <option value="restaurant">
+                            Restaurant
+                        </option>
+
+                        <option value="hall">
+                            Event Hall
+                        </option>
+
+                        <option value="outdoor">
+                            Outdoor
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        City
+                    </label>
+
+                    <input
+                        type="text"
+                        name="city"
+                        placeholder="Chennai"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Food Preference
+                    </label>
+
+                    <input
+                        type="text"
+                        name="food_preference"
+                        placeholder="South Indian vegetarian"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Decoration Style
+                    </label>
+
+                    <input
+                        type="text"
+                        name="decoration_style"
+                        placeholder="Elegant floral"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >
+                Generate Party Plan
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div
+        id="party-loading"
+        class="loading"
+    >
+        Planning your event...
+    </div>
+
+
+    <div
+        id="party-result"
+        class="result"
+    ></div>
+
+</div>
+
+{% endblock %}

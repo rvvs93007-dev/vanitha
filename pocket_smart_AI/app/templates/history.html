@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}
+Recommendation History - PocketSmart AI
+{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h1>
+                Recommendation History
+            </h1>
+
+            <p>
+                Your previous PocketSmart AI plans.
+            </p>
+
+        </div>
+
+        <div id="history-container">
+            Loading history...
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+async function loadHistory() {
+
+    const target =
+        document.getElementById(
+            "history-container"
+        );
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/history",
+                {
+                    credentials: "same-origin"
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if (!response.ok) {
+            target.innerHTML = `
+                <div class="alert alert-error">
+                    ${data.message || "Login required."}
+                </div>
+            `;
+
+            return;
+        }
+
+        if (!data.history.length) {
+
+            target.innerHTML = `
+                <div class="card">
+                    <p>
+                        No recommendations have been
+                        saved yet.
+                    </p>
+                </div>
+            `;
+
+            return;
+        }
+
+        let html = "";
+
+        for (const item of data.history) {
+
+            html += `
+                <div class="card history-item">
+
+                    <span class="badge">
+                        ${item.planner}
+                    </span>
+
+                    <h3>
+                        ${item.response.summary || "Recommendation"}
+                    </h3>
+
+                    <div class="history-meta">
+                        Budget:
+                        ${money(item.budget)}
+                        |
+                        ${item.created_at}
+                    </div>
+
+                    <p>
+                        ${item.response.notes?.join(" ") || ""}
+                    </p>
+
+                </div>
+            `;
+        }
+
+        target.innerHTML = html;
+
+    } catch (error) {
+
+        target.innerHTML = `
+            <div class="alert alert-error">
+                ${error.message}
+            </div>
+        `;
+    }
+}
+
+loadHistory();
+</script>
+
+{% endblock %}

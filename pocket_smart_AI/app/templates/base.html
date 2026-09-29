@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+        PocketSmart AI
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/app.css"
+    >
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="container nav-inner">
+
+        <a
+            href="/"
+            class="logo"
+        >
+            PocketSmart AI
+        </a>
+
+        <div class="nav-links">
+
+            <a href="/planner/home">
+                Home Planner
+            </a>
+
+            <a href="/planner/party">
+                Party Planner
+            </a>
+
+            <a href="/planner/jewelry">
+                Jewelry Planner
+            </a>
+
+            <a href="/testimonials">
+                Testimonials
+            </a>
+
+            {% if user %}
+                <a href="/dashboard">
+                    Dashboard
+                </a>
+
+                <a href="/history">
+                    History
+                </a>
+
+                <button
+                    class="btn btn-secondary"
+                    onclick="logout()"
+                >
+                    Logout
+                </button>
+            {% else %}
+                <a href="/login">
+                    Login
+                </a>
+
+                <a
+                    href="/register"
+                    class="btn btn-primary"
+                >
+                    Register
+                </a>
+            {% endif %}
+
+        </div>
+    </div>
+</nav>
+
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        PocketSmart AI &copy; 2026
+    </div>
+</footer>
+
+
+<script src="/static/js/app.js"></script>
+
+</body>
+</html>

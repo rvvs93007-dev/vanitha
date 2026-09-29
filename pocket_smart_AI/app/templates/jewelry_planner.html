@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% block title %}
+Jewelry Planner - PocketSmart AI
+{% endblock %}
+
+{% block content %}
+
+<div class="container planner-container">
+
+    <div class="form-card">
+
+        <h1>
+            Jewelry Budget Planner
+        </h1>
+
+        <p>
+            Describe the occasion and style you want.
+            You can optionally upload an outfit image
+            for multimodal AI analysis.
+        </p>
+
+
+        <form
+            onsubmit="submitJewelryForm(event)"
+            enctype="multipart/form-data"
+        >
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Budget (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        name="budget"
+                        min="1"
+                        required
+                        placeholder="15000"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Occasion
+                    </label>
+
+                    <select name="occasion">
+
+                        <option value="party">
+                            Party
+                        </option>
+
+                        <option value="wedding">
+                            Wedding
+                        </option>
+
+                        <option value="engagement">
+                            Engagement
+                        </option>
+
+                        <option value="office">
+                            Office
+                        </option>
+
+                        <option value="festival">
+                            Festival
+                        </option>
+
+                        <option value="date">
+                            Date
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Style
+                    </label>
+
+                    <select name="style">
+
+                        <option value="elegant">
+                            Elegant
+                        </option>
+
+                        <option value="minimalist">
+                            Minimalist
+                        </option>
+
+                        <option value="traditional">
+                            Traditional
+                        </option>
+
+                        <option value="modern">
+                            Modern
+                        </option>
+
+                        <option value="statement">
+                            Statement
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Preferred Metal
+                    </label>
+
+                    <select name="metal">
+
+                        <option value="">
+                            No preference
+                        </option>
+
+                        <option value="gold">
+                            Gold
+                        </option>
+
+                        <option value="silver">
+                            Silver
+                        </option>
+
+                        <option value="rose gold">
+                            Rose Gold
+                        </option>
+
+                        <option value="oxidized">
+                            Oxidized
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Outfit Description
+                    </label>
+
+                    <textarea
+                        name="outfit_description"
+                        placeholder="Example: Dark green silk saree with gold border."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Upload Outfit Image
+                    </label>
+
+                    <input
+                        type="file"
+                        name="outfit_image"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+                    <small>
+                        Optional. JPG, PNG or WebP, maximum 5 MB.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >
+                Find Matching Jewelry
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div
+        id="jewelry-loading"
+        class="loading"
+    >
+        Analyzing your preferences...
+    </div>
+
+
+    <div
+        id="jewelry-result"
+        class="result"
+    ></div>
+
+</div>
+
+{% endblock %}

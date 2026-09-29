@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}
+PocketSmart AI - Smart Budget Assistant
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="container">
+
+        <h1>
+            Plan smarter.
+            Spend better.
+            With AI.
+        </h1>
+
+        <p>
+            PocketSmart AI helps you plan home interiors,
+            parties and jewelry purchases around the budget
+            you choose.
+        </p>
+
+        <div class="button-row">
+
+            <a
+                href="/planner/home"
+                class="btn btn-primary"
+            >
+                Plan My Home
+            </a>
+
+            <a
+                href="/planner/party"
+                class="btn btn-secondary"
+            >
+                Plan My Party
+            </a>
+
+            <a
+                href="/planner/jewelry"
+                class="btn btn-secondary"
+            >
+                Find Jewelry
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                One assistant. Three planners.
+            </h2>
+
+            <p>
+                Turn your budget and preferences into
+                practical recommendations.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Home Interior
+                </h3>
+
+                <p>
+                    Plan furniture, lighting, storage
+                    and decor according to your budget
+                    and preferred style.
+                </p>
+
+                <a
+                    href="/planner/home"
+                    class="btn btn-primary"
+                >
+                    Start Planner
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Party Planning
+                </h3>
+
+                <p>
+                    Allocate your event budget across
+                    catering, venue, decoration and
+                    entertainment.
+                </p>
+
+                <a
+                    href="/planner/party"
+                    class="btn btn-primary"
+                >
+                    Start Planner
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Jewelry
+                </h3>
+
+                <p>
+                    Get occasion and style-aware jewelry
+                    suggestions, including optional
+                    outfit image analysis.
+                </p>
+
+                <a
+                    href="/planner/jewelry"
+                    class="btn btn-primary"
+                >
+                    Start Planner
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
